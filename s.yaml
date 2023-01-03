@@ -33,13 +33,10 @@ services:
     component:  fc    # 组件名称，Serverless Devs 工具本身类似于一种游戏机，不具备具体的业务能力，组件类似于游戏卡，用户通过向游戏机中插入不同的游戏卡实现不同的功能，即通过使用不同的组件实现不同的具体业务能力
     actions:          # 自定义执行逻辑，关于actions 的使用，可以参考：https://www.serverless-devs.com/serverless-devs/yaml#行为描述
       pre-deploy:  # 在deploy之前运行
+        - run: mkdir -p /mnt/auto/loki-data
         - component: fc nas upload -ro loki/ /mnt/auto/loki
-        - run: 'ls /'
-        - run: 'uname -a'
       post-deploy:  # 在deploy之后运行
-        - run: mkdir -p /mnt/auto/loki-data/rules2
-        - run: 'ls /'
-        - run: 'uname -a'
+        - run: 'ls -lh /mnt/auto'
     props: # 组件的属性值
       region: ${vars.region}
       service: ${vars.service}
@@ -55,7 +52,7 @@ services:
         customContainerConfig:
           image: registry.cn-hangzhou.aliyuncs.com/dbsnolimit/loki:1.0-SNAPSHOT-amd64                # Container image warehouse address
           command: '["/usr/bin/loki"]'
-          args: '["-config.file=/etc/loki/local-config.yaml"]'
+          args: '["-config.file=/mnt/auto/loki/local-config.yaml"]'
           accelerationType: Default # Mirror acceleration switch, optional values: 'Default', 'None', the former means on, the latter means off
       triggers:
         - name: httpTrigger
