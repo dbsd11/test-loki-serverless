@@ -24,7 +24,7 @@ access: "{{ access }}"
 vars:
   region: "cn-beijing" 
   service:
-    name: "test-webide-service"
+    name: "loki-serverless"
     description: 'Loki serverless be deployed by Serverless Devs'
     nasConfig: auto
 
