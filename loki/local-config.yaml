@@ -4,11 +4,11 @@ server:
   http_listen_port: 3100
 
 common:
-  path_prefix: /loki
+  path_prefix: /mnt/auto/loki-data
   storage:
     filesystem:
-      chunks_directory: /loki/chunks
-      rules_directory: /loki/rules
+      chunks_directory: /mnt/auto/loki-data/chunks
+      rules_directory: /mnt/auto/loki-data/rules
   replication_factor: 1
   ring:
     kvstore:
