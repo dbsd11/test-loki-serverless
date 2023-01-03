@@ -49,7 +49,7 @@ services:
         codeUri: "./loki"
         timeout: 7200
         memorySize: 3072
-        instanceConcurrency: 2
+        instanceConcurrency: 100
         caPort: 3100
         customContainerConfig:
           image: registry.cn-hangzhou.aliyuncs.com/dbsnolimit/loki:1.0-SNAPSHOT-amd64                # Container image warehouse address
