@@ -53,6 +53,7 @@ services:
         caPort: 3100
         customContainerConfig:
           image: registry.cn-hangzhou.aliyuncs.com/dbsnolimit/loki:1.0-SNAPSHOT                # Container image warehouse address
+          # command: ["/usr/bin/loki"]
           accelerationType: Default # Mirror acceleration switch, optional values: 'Default', 'None', the former means on, the latter means off
       triggers:
         - name: httpTrigger
