@@ -55,6 +55,9 @@ services:
           image: registry.cn-hangzhou.aliyuncs.com/dbsnolimit/loki                # Container image warehouse address
           command: ["/usr/bin/loki"]
           accelerationType: Default # Mirror acceleration switch, optional values: 'Default', 'None', the former means on, the latter means off
+        customRuntimeConfig: # custom Define runtime startup configuration
+            command:         # startup command, example value: ["/code/myserver"]
+                - /usr/bin/loki
       triggers:
         - name: httpTrigger
           type: http
