@@ -22,7 +22,7 @@ access: "{{ access }}"
 
 
 vars:
-  region: "cn-beijing" 
+  region: "cn-hangzhou" 
   service:
     name: "loki-serverless"
     description: 'Loki serverless be deployed by Serverless Devs'
