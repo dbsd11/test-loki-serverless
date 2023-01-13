@@ -17,7 +17,7 @@ common:
 storage_config:
   index_queries_cache_config:
     redis:
-      endpoint: 10.20.133.149:6379
+      endpoint: 10.20.133.203:6379
       password: Aa123456
       expiration: 1h
       timeout: 1000ms
@@ -25,13 +25,13 @@ storage_config:
 chunk_store_config:
   chunk_cache_config:
     redis:
-      endpoint: 10.20.133.149:6379
+      endpoint: 10.20.133.203:6379
       password: Aa123456
       expiration: 1h
       timeout: 1000ms
   write_dedupe_cache_config:
     redis:
-      endpoint: 10.20.133.149:6379
+      endpoint: 10.20.133.203:6379
       password: Aa123456
       expiration: 1h
       timeout: 1000ms
