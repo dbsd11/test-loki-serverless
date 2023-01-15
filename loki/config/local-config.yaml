@@ -22,6 +22,16 @@ storage_config:
       expiration: 1h
       timeout: 10000ms
 
+schema_config:
+  configs:
+    - from: 2020-10-24
+      store: boltdb-shipper
+      object_store: filesystem
+      schema: v11
+      index:
+        prefix: index_
+        period: 24h
+
 chunk_store_config:
   chunk_cache_config:
     redis:
@@ -34,24 +44,14 @@ chunk_store_config:
       endpoint: 10.20.133.232:6379
       password: Aa123456
       expiration: 1h
-      timeout: 10000ms
-
+      timeout: 10000ms  
+        
 query_range:
   results_cache:
     cache:
       embedded_cache:
         enabled: true
         max_size_mb: 100
-
-schema_config:
-  configs:
-    - from: 2020-10-24
-      store: boltdb-shipper
-      object_store: filesystem
-      schema: v11
-      index:
-        prefix: index_
-        period: 24h
 
 ruler:
   alertmanager_url: http://localhost:9093
