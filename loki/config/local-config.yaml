@@ -46,15 +46,16 @@ chunk_store_config:
       expiration: 1h
       timeout: 10000ms
 
-wal:
-  enabled: false
-        
 query_range:
   results_cache:
     cache:
       embedded_cache:
         enabled: true
         max_size_mb: 100
+
+ingester:
+  wal:
+    enabled: false
 
 ruler:
   alertmanager_url: http://localhost:9093
