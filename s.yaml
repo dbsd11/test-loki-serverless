@@ -37,6 +37,7 @@ services:
         - component: fc nas upload -ro loki/ /mnt/auto/loki
       post-deploy:  # 在deploy之后运行
         - run: 'ls -lh /mnt/auto'
+        - run: 'rm -rf /etc/loki/local-config.yaml && ln -s /mnt/auto/loki/config/local-config.yaml /etc/loki/local-config.yaml '
     props: # 组件的属性值
       region: ${vars.region}
       service: ${vars.service}
