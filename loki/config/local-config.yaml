@@ -19,7 +19,7 @@ ingester:
       replication_factor: 1
     final_sleep: 0s
   chunk_idle_period: 5m
-  chunk_retain_period: 10s
+  chunk_retain_period: 1m
 
 common:
   path_prefix: /mnt/auto/loki-data
