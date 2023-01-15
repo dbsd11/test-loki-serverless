@@ -9,7 +9,7 @@ common:
     filesystem:
       chunks_directory: /mnt/auto/loki-data/chunks
       rules_directory: /mnt/auto/loki-data/rules
-  replication_factor: 1
+  replication_factor: 0
   ring:
     kvstore:
       store: inmemory
