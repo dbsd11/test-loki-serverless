@@ -19,7 +19,7 @@ ingester:
       replication_factor: 1
     final_sleep: 0s
   chunk_idle_period: 5m
-  chunk_retain_period: 30s
+  chunk_retain_period: 10s
 
 common:
   path_prefix: /mnt/auto/loki-data
@@ -29,11 +29,12 @@ common:
       rules_directory: /mnt/auto/loki-data/rules
 
 storage_config:
+  index_cache_validity: 5m
   index_queries_cache_config:
     redis:
       endpoint: 10.20.133.232:6379
       password: Aa123456
-      expiration: 1h
+      expiration: 3m
       timeout: 10000ms
 
 schema_config:
@@ -51,13 +52,13 @@ chunk_store_config:
     redis:
       endpoint: 10.20.133.232:6379
       password: Aa123456
-      expiration: 1h
+      expiration: 3m
       timeout: 10000ms
   write_dedupe_cache_config:
     redis:
       endpoint: 10.20.133.232:6379
       password: Aa123456
-      expiration: 1h
+      expiration: 5m
       timeout: 10000ms
 
 query_range:
