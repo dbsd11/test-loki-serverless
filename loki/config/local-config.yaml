@@ -13,6 +13,8 @@ common:
   ring:
     kvstore:
       store: inmemory
+  wal:
+    enabled: false
 
 storage_config:
   index_queries_cache_config:
@@ -44,7 +46,7 @@ chunk_store_config:
       endpoint: 10.20.133.232:6379
       password: Aa123456
       expiration: 1h
-      timeout: 10000ms  
+      timeout: 10000ms
         
 query_range:
   results_cache:
