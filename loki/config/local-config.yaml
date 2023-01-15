@@ -1,7 +1,25 @@
 auth_enabled: false
 
+limits_config:
+  enforce_metric_name: false
+  reject_old_samples: false
+  reject_old_samples_max_age: 168h
+
 server:
   http_listen_port: 3100
+
+ingester:
+  wal:
+    enabled: false
+  lifecycler:
+    address: 127.0.0.1
+    ring:
+      kvstore:
+        store: inmemory
+      replication_factor: 1
+    final_sleep: 0s
+  chunk_idle_period: 5m
+  chunk_retain_period: 30s
 
 common:
   path_prefix: /mnt/auto/loki-data
@@ -9,10 +27,6 @@ common:
     filesystem:
       chunks_directory: /mnt/auto/loki-data/chunks
       rules_directory: /mnt/auto/loki-data/rules
-  replication_factor: 0
-  ring:
-    kvstore:
-      store: inmemory
 
 storage_config:
   index_queries_cache_config:
@@ -52,10 +66,6 @@ query_range:
       embedded_cache:
         enabled: true
         max_size_mb: 100
-
-ingester:
-  wal:
-    enabled: false
 
 ruler:
   alertmanager_url: http://localhost:9093
